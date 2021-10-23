@@ -1,0 +1,95 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://LifeCounterPlayer2.gd" type="Script" id=1]
+[ext_resource path="res://LifeCounterPlayer1.gd" type="Script" id=2]
+[ext_resource path="res://Player1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Main.gd" type="Script" id=4]
+[ext_resource path="res://Player2.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Enemy.gd" type="Script" id=7]
+[ext_resource path="res://Boss.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Boss.gd" type="Script" id=9]
+
+[node name="Main" type="Node"]
+script = ExtResource( 4 )
+
+[node name="Enemy1" parent="." instance=ExtResource( 6 )]
+position = Vector2( 92.8887, -108.382 )
+script = ExtResource( 7 )
+speed = 6300
+
+[node name="Enemy2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 251.089, -388.417 )
+script = ExtResource( 7 )
+speed = 8300
+
+[node name="Enemy3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 428.266, -201.901 )
+script = ExtResource( 7 )
+speed = 4400
+
+[node name="Enemy4" parent="." instance=ExtResource( 6 )]
+position = Vector2( 597.772, -428.984 )
+script = ExtResource( 7 )
+speed = 5300
+
+[node name="Enemy5" parent="." instance=ExtResource( 6 )]
+position = Vector2( 761.059, -210.819 )
+script = ExtResource( 7 )
+speed = 6300
+
+[node name="Enemy6" parent="." instance=ExtResource( 6 )]
+position = Vector2( 425.602, -619.647 )
+script = ExtResource( 7 )
+speed = 4300
+
+[node name="Enemy7" parent="." instance=ExtResource( 6 )]
+position = Vector2( 926.064, -424.583 )
+script = ExtResource( 7 )
+speed = 6300
+
+[node name="Enemy8" parent="." instance=ExtResource( 6 )]
+position = Vector2( 773.282, -740.03 )
+script = ExtResource( 7 )
+speed = 6300
+
+[node name="Boss" parent="." instance=ExtResource( 8 )]
+position = Vector2( 512, -1105.15 )
+script = ExtResource( 9 )
+speed = 4200
+
+[node name="Player1" parent="." instance=ExtResource( 3 )]
+position = Vector2( 140, 580 )
+
+[node name="Player2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 920, 580 )
+
+[node name="LifeCounterPlayer1" type="Label" parent="."]
+margin_top = 1.33484
+margin_right = 294.0
+margin_bottom = 89.3348
+custom_colors/font_color = Color( 0, 0.686275, 1, 1 )
+text = "P1 Lives: "
+align = 1
+valign = 1
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LifeCounterPlayer2" type="Label" parent="."]
+margin_left = 813.0
+margin_top = 1.0
+margin_right = 1024.0
+margin_bottom = 89.0
+custom_colors/font_color = Color( 1, 0.305882, 0, 1 )
+text = "P2 Lives:"
+align = 1
+valign = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="body_entered" from="Player1" to="Player1" method="_on_Player1_body_entered"]
+[connection signal="body_entered" from="Player2" to="Player2" method="_on_Player2_body_entered"]
